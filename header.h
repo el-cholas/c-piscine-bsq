@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 01:12:28 by yzaytoun          #+#    #+#             */
-/*   Updated: 2022/02/28 20:12:43 by xcarroll         ###   ########.fr       */
+/*   Created: 2022/02/28 21:12:44 by xcarroll          #+#    #+#             */
+/*   Updated: 2022/02/28 21:12:48 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 struct	s_dict
 {
@@ -36,6 +35,7 @@ int		is_map_valid(char *map);
 char	get_empty_char(char *map);
 char	get_obstical_char(char *map);
 int		get_width_of_map(char *map);
+char	get_square_char(char *map);
 /* map.c */
 void	start_map(char *map_file_name);
 void	main_map(char *map);

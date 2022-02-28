@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 19:14:29 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/28 20:18:23 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/28 21:10:30 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 1 = True
 prev_eol is Previous End Of Line, which is a position i n the file
 lc is Line Count
+
+Returns
+1 == Valid
+2 == Map width is incorrect
+3 == Illegal Char (not '\0')
+4 == Bad map height (may have a null char on 2000th char)
 */
 int	is_map_valid(char *map)
 {
@@ -32,7 +38,7 @@ int	is_map_valid(char *map)
 	allowed_chars[0] = get_empty_char(map);
 	allowed_chars[1] = get_obstical_char(map);
 	lc = 0;
-	while (map[counter] != 0 && counter < 10000)
+	while (map[counter] != 0)
 	{
 		if (map[counter] == '\n')
 		{
@@ -42,16 +48,16 @@ int	is_map_valid(char *map)
 				lc++;
 			}
 			else
-				return (0);
+				return (2);
 		}
 		else if (!is_char_in_arr(map[counter], allowed_chars))
-			return (0);
+			return (3);
 		counter++;
 	}
 	if (lc == string_to_int(map) || lc == string_to_int(map) - 1)
 		return (1);
 	else
-		return (0);
+		return (4);
 }
 
 
@@ -71,6 +77,14 @@ char	get_obstical_char(char *map)
 	return (map[first_line_len - 3]);
 }
 
+char	get_square_char(char *map)
+{
+	int	first_line_len;
+
+	first_line_len = pos_char_in_array('\n', map) + 1;
+	return (map[first_line_len - 2]);
+}
+
 int	get_width_of_map(char *map)
 {
 	int	counter;
@@ -84,5 +98,5 @@ int	get_width_of_map(char *map)
 			return (counter - offset);
 		counter++;
 	}
-	return (-1);
+	return (0);
 }
