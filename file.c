@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:14:18 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/28 16:35:52 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/28 16:38:01 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*read_file(char *file)
 	char	*file_memory;
 	int		file_read;
 	int		file_open;
-	char	*file;
+	char	*file_content;
 	int		count;
 
 	file_open = open(file, O_RDONLY);
@@ -27,15 +27,15 @@ char	*read_file(char *file)
 	}
 	file_memory = (char *)malloc(sizeof(char) * 2000);
 	file_read = read(file_open, file_memory, 2000);
-	file = (char *)malloc(sizeof(char) * (file_read + 1));
+	file_content = (char *)malloc(sizeof(char) * (file_read + 1));
 	count = 0;
 	while (count < file_read)
 	{
-		file[count] = file_memory[count];
+		file_content[count] = file_memory[count];
 		count++;
 	}
-	file[count] = '\0';
+	file_content[count] = '\0';
 	free(file_memory);
 	close(file_open);
-	return (dict);
+	return (file_content);
 }

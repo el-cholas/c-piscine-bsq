@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 01:12:28 by yzaytoun          #+#    #+#             */
-/*   Updated: 2022/02/28 16:35:57 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/28 16:38:53 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	print_number(int nb);
 /* file.c */
 char	*read_file(char *file);
 /* map.c */
-void	start_map(char *map);
+void	start_map(char *map_file_name);
 #endif

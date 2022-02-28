@@ -6,13 +6,13 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:19:05 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/28 16:35:25 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/28 16:38:30 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	start_map(char *map_file_name)
+void	start_map(char *map_file_name)
 {
 	char	*map_contents;
 
