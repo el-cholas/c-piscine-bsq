@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 01:12:28 by yzaytoun          #+#    #+#             */
-/*   Updated: 2022/02/28 16:16:15 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/28 16:35:57 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@ struct	s_dict
 };
 
 /* display.c */
-void			print_char(char c);
-void			print_string(char *str);
-void			print_number(int nb);
+void	print_char(char c);
+void	print_string(char *str);
+void	print_number(int nb);
 /* file.c */
-void			check_error(int fun);
-char			*read_file(char *file);
+char	*read_file(char *file);
+/* map.c */
+void	start_map(char *map);
 #endif

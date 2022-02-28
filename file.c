@@ -6,42 +6,36 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:14:18 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/28 16:16:28 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/28 16:35:52 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	check_error(int fun)
-{
-	if (fun < 0)
-	{
-		write(1, "File Error\n", 11);
-		exit (1);
-	}
-}
-
 char	*read_file(char *file)
 {
-	char	*dict_memory;
-	int		dict_read;
-	int		dict_open;
-	char	*dict;
+	char	*file_memory;
+	int		file_read;
+	int		file_open;
+	char	*file;
 	int		count;
 
-	dict_open = open(file, O_RDONLY);
-	check_error(dict_open);
-	dict_memory = (char *)malloc(sizeof(char) * 2000);
-	dict_read = read(dict_open, dict_memory, 2000);
-	dict = (char *)malloc(sizeof(char) * (dict_read + 1));
-	count = 0;
-	while (count < dict_read)
+	file_open = open(file, O_RDONLY);
+	if (file_open < 0)
 	{
-		dict[count] = dict_memory[count];
+		return (0);
+	}
+	file_memory = (char *)malloc(sizeof(char) * 2000);
+	file_read = read(file_open, file_memory, 2000);
+	file = (char *)malloc(sizeof(char) * (file_read + 1));
+	count = 0;
+	while (count < file_read)
+	{
+		file[count] = file_memory[count];
 		count++;
 	}
-	dict[count] = '\0';
-	free(dict_memory);
-	close(dict_open);
+	file[count] = '\0';
+	free(file_memory);
+	close(file_open);
 	return (dict);
 }
