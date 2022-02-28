@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   conversions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 04:42:49 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/28 17:21:32 by xcarroll         ###   ########.fr       */
+/*   Created: 2022/02/28 17:51:08 by xcarroll          #+#    #+#             */
+/*   Updated: 2022/02/28 18:35:27 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	main(int argc, char **argv)
+int	string_to_int(const char *str)
 {
-	int	maps;
-	int	current_map;
+	int	i;
+	int	sign;
+	int	result;
 
-	maps = argc - 1;
-	current_map = 0;
-	while (current_map < maps)
+	i = 0;
+	sign = 1;
+	result = 0;
+	while (str[i] == ' ')
+		i++;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		start_map(argv[current_map + 1]);
-		current_map++;
-		if (current_map < maps)
-			print_string("\n\n");
+		if (str[i] == '-')
+			sign = -sign;
+		i++;
 	}
-	if (maps == 0)
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
-		/* Standard input shit */
+		result *= 10;
+		result += str[i] - '0';
+		i++;
 	}
+	return (result * sign);
 }
