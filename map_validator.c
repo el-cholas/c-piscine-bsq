@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:21:05 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/01 01:20:56 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/01 14:24:35 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,12 @@ int	is_map_valid(char *map)
 	int	start;
 
 	start = pos_char_in_array('\n', map) + 1;
-	printf("Chars: %d\n", are_chars_valid(map, start));
-	printf("Width: %d\n", is_width_valid(map, start));
-	printf("Height: %d\n", is_height_valid(map, start));
-	/*
 	if (!are_chars_valid(map, start))
+		return (0);
+	else if (!is_width_valid(map, start))
 		return (0);
 	else if (!is_height_valid(map, start))
 		return (0);
-	*/
 	return (1);
 }
 
@@ -91,7 +88,7 @@ int	is_height_valid(char *map, int start)
 			lc++;
 		counter++;
 	}
-	if (lc == string_to_int(map))
+	if (lc == string_to_int(map) - 1)
 		return (1);
 	else
 		return (0);
