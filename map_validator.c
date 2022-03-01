@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:21:05 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/01 01:03:31 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/01 01:04:56 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	is_width_valid(char *map, int start)
 	int	map_width;
 
 	map_width = get_width_of_map(map) + 1;
-	counter = start;
+	i = start;
 	prev_eol = 0;
 	while (map[i] != 0)
 	{
@@ -69,7 +69,7 @@ int	is_width_valid(char *map, int start)
 		else
 		{
 			printf("\nMap width: %d\n", map_width);
-			printf("Counter: %d\n", couinter);
+			printf("Counter: %d\n", i);
 			printf("prev_eol: %d\n\n", prev_eol);
 			return (0);
 		}
