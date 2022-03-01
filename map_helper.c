@@ -6,60 +6,11 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 19:14:29 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/28 21:10:30 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/02/28 23:21:00 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-/*
-0 = False
-1 = True
-prev_eol is Previous End Of Line, which is a position i n the file
-lc is Line Count
-
-Returns
-1 == Valid
-2 == Map width is incorrect
-3 == Illegal Char (not '\0')
-4 == Bad map height (may have a null char on 2000th char)
-*/
-int	is_map_valid(char *map)
-{
-	int		counter;
-	char	allowed_chars[3];
-	int		prev_eol;
-	int		map_width;
-	int		lc;
-
-	counter = pos_char_in_array('\n', map) + 1;
-	map_width = get_width_of_map(map);
-	prev_eol = 0;
-	allowed_chars[0] = get_empty_char(map);
-	allowed_chars[1] = get_obstical_char(map);
-	lc = 0;
-	while (map[counter] != 0)
-	{
-		if (map[counter] == '\n')
-		{
-			if (counter - prev_eol == map_width + 1 || prev_eol == 0)
-			{
-				prev_eol = counter;
-				lc++;
-			}
-			else
-				return (2);
-		}
-		else if (!is_char_in_arr(map[counter], allowed_chars))
-			return (3);
-		counter++;
-	}
-	if (lc == string_to_int(map) || lc == string_to_int(map) - 1)
-		return (1);
-	else
-		return (4);
-}
-
 
 char	get_empty_char(char *map)
 {
