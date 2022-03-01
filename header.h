@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 21:12:44 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/01 00:05:23 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:37:51 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ void	main_map(char *map);
 int		is_char_in_arr(char c, char *arr);
 int		pos_char_in_array(char c, char *arr);
 int		get_string_size(char *str);
+int		is_printable(char c);
 #endif

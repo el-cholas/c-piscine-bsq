@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:32:13 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/28 21:33:40 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:37:58 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,11 @@ int	get_string_size(char *str)
 	while (str[i] != 0)
 		i++;
 	return (i);
+}
+
+int	is_printable(char c)
+{
+	if (c >= ' ' && c <= '~')
+		return (1);
+	return (0);
 }

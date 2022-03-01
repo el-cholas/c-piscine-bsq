@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:21:05 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/01 14:24:35 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:42:29 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 1 = True
 prev_eol is Previous End Of Line, which is a position i n the file
 lc is Line Count
+
+For validate height, need to only count consecutive lines where the
+Line length is not 0.
 */
 int	is_map_valid(char *map)
 {
@@ -39,6 +42,15 @@ int	are_chars_valid(char *map, int start)
 
 	chars[0] = get_empty_char(map);
 	chars[1] = get_obstical_char(map);
+	chars[2] = get_square_char(map);
+	if (chars[0] == chars[1] || chars[0] == chars[2] || chars[1] == chars[2])
+		return (0);
+	else if (!is_printable(chars[0]))
+		return (0);
+	else if (!is_printable(chars[1]))
+		return (0);
+	else if (!is_printable(chars[2]))
+		return (0);
 	counter = start;
 	while (map[counter] != 0)
 	{
