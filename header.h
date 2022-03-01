@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 21:12:44 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/01 19:18:02 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/01 23:32:34 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ struct	s_dict
 };
 /* conversions.c */
 int		string_to_int(const char *str);
+int		get_min(int a, int b, int c);
 /* display.c */
 void	print_char(char c);
 void	print_string(char *str);
@@ -43,7 +44,8 @@ int		is_width_valid(char *map, int start);
 int		is_height_valid(char *map, int start);
 /* map.c */
 void	start_map(char *map_file_name);
-void	main_map(char *map);
+void	main_map(char *map, int *map_copy, char *chars, int map_width);
+void	change_chars(int *mc, char empty, char obstical, int map_width);
 int		get_xy_coord(int x_coord, int y_coord, int map_width);
 /* string.c */
 int		is_char_in_arr(char c, char *arr);

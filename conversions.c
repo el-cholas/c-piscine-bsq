@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:51:08 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/28 18:35:27 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/01 23:14:31 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,13 @@ int	string_to_int(const char *str)
 		i++;
 	}
 	return (result * sign);
+}
+
+int	get_min(int a, int b, int c)
+{
+	if (a < b && a < c)
+		return (a);
+	else if (b < c)
+		return (b);
+	return (c);
 }
