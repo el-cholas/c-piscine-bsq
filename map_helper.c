@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 19:14:29 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/28 23:21:00 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/01 19:05:10 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	get_square_char(char *map)
 	return (map[first_line_len - 2]);
 }
 
+/* Returns width not including new line char */
 int	get_width_of_map(char *map)
 {
 	int	counter;

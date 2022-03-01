@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:32:13 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/01 17:37:58 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/01 19:17:53 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,26 @@ int	is_printable(char c)
 {
 	if (c >= ' ' && c <= '~')
 		return (1);
+	return (0);
+}
+
+char	*ft_strstr(char *str, char *to_find)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (to_find[j] == '\0')
+		return (str);
+	while (str[i] != '\0')
+	{
+		while (str[i + j] == to_find[j] && str[i + j] != '\0')
+			j++;
+		if (to_find[j] == '\0')
+			return (str + i);
+		i++;
+		j = 0;
+	}
 	return (0);
 }
