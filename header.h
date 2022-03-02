@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 21:12:44 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 01:19:00 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 01:39:04 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ struct	s_dict
 	char	*key;
 	char	*value;
 };
+/* array_helper.c */
+short	**create_2d(int width, int height);
 /* conversions.c */
 int		string_to_int(const char *str);
 int		get_min(int a, int b, int c);
@@ -30,7 +32,7 @@ int		get_min(int a, int b, int c);
 void	print_char(char c);
 void	print_string(char *str);
 void	print_number(int nb);
-void	print_num_map(int *map);
+void	print_short_map(short **arr, int width, int height);
 /* file.c */
 char	*read_file(char *file);
 /* map_helper.c */

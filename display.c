@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:43:36 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/01 23:39:16 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 02:45:18 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,18 @@ void	print_number(int nb)
 }
 
 // for viewing pleasures
-void	print_num_map(int *map)
+void	print_short_map(short **arr, int width, int height)
 {
-	int	i;
+	int	x;
+	int	y;
 
-	i = 0;
-	while (map[i] != -10)
+	y = 0;
+	while (y <= height)
 	{
-		if (map[i] == -2)
-			printf("\n\n");
-		else
-			printf("%d", map[i] + '0');
-		printf(" ");
-		i++;
+		x = 0;
+		while (x < width)
+			printf("%d\t", arr[y][x++]);
+		printf("\n");
+		y++;
 	}
 }
