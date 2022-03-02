@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:19:05 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 02:48:03 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 03:23:48 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ void	main_map(char *map_string, char *chars, int m_x, int m_y)
 	print_string(map_string);
 	print_string("\n\n");
 	print_short_map(map_short, m_x, m_y);
+	calculate_squares(map_short, m_x, m_y);
+	print_string("\n\n");
+	print_short_map(map_short, m_x, m_y);
+	print_string("\n\n");
+	find_squares(map_short, m_x, m_y);
 }
 
 /*
@@ -88,6 +93,27 @@ short	**create_short_copy(char *m_s, char *c, int w, int h)
 		y++;
 	}
 	return (m);
+}
+
+void	calculate_squares(short **m, int w, int h)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y <= h)
+	{
+		x = 0;
+		while (x < w)
+		{
+			if (m[y][x] == -1)
+			{
+				m[y][x] = min(m[y][x - 1], m[y][x - 1], m[y - 1][x - 1]) + 1;
+			}
+			x++;
+		}
+		y++;
+	}
 }
 
 //printf("current: %c a: %c b: %c c: %c\n",mc[i],  mc[i - 1],
