@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 01:27:45 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 19:50:30 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:29:21 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ short	**create_2d(int width, int height)
 }
 
 /*
-takes input of pre-processed array
+takes input of pre-processed array with algorithm implimented
 square is [posX, posY, height]
 where pos x and y are bottom right corner
 
@@ -89,7 +89,7 @@ void	fill_square(char *map, char c, int *square, int map_width)
 	}
 }
 
-//Input "false" coords to return the char index of that position
+//Input coords to return the char index of that position
 // 0, 0 will return 0
 int	get_xy_coord(int x_coord, int y_coord, int map_width)
 {

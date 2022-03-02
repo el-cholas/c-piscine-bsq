@@ -6,14 +6,14 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:19:05 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 19:55:10 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:24:10 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
 /*
-map is the map without the first line
+map_body is the map without the 'header'
 
 chars
 0 = empty character
@@ -49,12 +49,7 @@ void	main_map(char *map_string, char *chars, int m_x, int m_y)
 	short	**map_short;
 	int		*square;
 
-	//chars = 0;
-	//map_string = 0;
-	//map_short = 0;
-	//square = 0;
 	map_short = create_short_copy(map_string, chars, m_x, m_y);
-	//print_short_map(create_2d(m_x, m_y), m_x, m_y);
 	calculate_squares(map_short, m_x, m_y);
 	square = find_square(map_short, m_x, m_y);
 	fill_square(map_string, chars[2], square, m_x);
@@ -97,6 +92,7 @@ short	**create_short_copy(char *m_s, char *c, int w, int h)
 	return (m);
 }
 
+/* This is the actual algorithm */
 void	calculate_squares(short **m, int w, int h)
 {
 	int	x;
@@ -117,17 +113,3 @@ void	calculate_squares(short **m, int w, int h)
 		y++;
 	}
 }
-
-//printf("current: %c a: %c b: %c c: %c\n",mc[i],  mc[i - 1],
-//mc[i - mw],  mc[i - mw - 1]);
-//mc[i] = get_min(mc[i - 1], mc[i - mw], mc[i - mw - 1]) + '0';
-
-/*
-mc = map_copy
-mw = map_width + 1;
-1 = 
-0 = obstical
--1 = temp, it wil be changed later
--2 = new line, will be ignored
--10 = end of 'string'
-*/

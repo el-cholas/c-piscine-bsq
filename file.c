@@ -6,18 +6,11 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:14:18 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 19:31:25 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:26:55 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-/*
-char	*read_file(char *file)
-{
-	
-}
-*/
 
 char	*read_file(char *file)
 {

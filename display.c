@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:43:36 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 02:45:18 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:27:36 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,11 @@ void	print_short_map(short **arr, int width, int height)
 	{
 		x = 0;
 		while (x < width)
-			printf("%d\t", arr[y][x++]);
-		printf("\n");
+		{
+			print_number(arr[y][x++]);
+			print_string("\t");
+		}
+		print_string("\n");
 		y++;
 	}
 }

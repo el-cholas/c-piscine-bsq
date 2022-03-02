@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 21:12:44 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 04:08:27 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:08:32 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 struct	s_dict
 {
