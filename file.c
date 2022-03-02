@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:14:18 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 06:40:29 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 19:31:25 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ char	*read_file(char *file)
 	{
 		return (0);
 	}
-	file_memory = (char *)malloc(sizeof(char) * 5000);
-	file_read = read(file_open, file_memory, 5000);
+	file_memory = (char *)malloc(sizeof(char) * 2147483647);
+	file_read = read(file_open, file_memory, 2147483647);
 	file_content = (char *)malloc(sizeof(char) * (file_read + 1));
 	count = 0;
 	while (count < file_read)

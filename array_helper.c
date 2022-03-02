@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 01:27:45 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 05:20:58 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 19:50:30 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ short	**create_2d(int width, int height)
 	int		y;
 
 	y = 0;
-	arr = (short **)malloc(sizeof(short *) * height);
+	arr = (short **)malloc(sizeof(short *) * height + 1);
 	while (y <= height)
 	{
 		arr[y] = (short *)malloc(sizeof(short ) * width);

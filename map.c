@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:19:05 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 05:54:22 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 19:55:10 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,12 @@ void	main_map(char *map_string, char *chars, int m_x, int m_y)
 	short	**map_short;
 	int		*square;
 
+	//chars = 0;
+	//map_string = 0;
+	//map_short = 0;
+	//square = 0;
 	map_short = create_short_copy(map_string, chars, m_x, m_y);
+	//print_short_map(create_2d(m_x, m_y), m_x, m_y);
 	calculate_squares(map_short, m_x, m_y);
 	square = find_square(map_short, m_x, m_y);
 	fill_square(map_string, chars[2], square, m_x);
