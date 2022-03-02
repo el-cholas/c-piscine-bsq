@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:19:05 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 04:19:08 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 05:54:22 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ m_y			= map height
 map_short	= copy of map but in short format and as a bi-dimensional array
 */
 void	main_map(char *map_string, char *chars, int m_x, int m_y)
-{
+{	
 	short	**map_short;
 	int		*square;
 
