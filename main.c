@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 04:42:49 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 21:20:52 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/03 00:19:08 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	int	maps;
-	int	current_map;
+	int		maps;
+	int		current_map;
 
 	maps = argc - 1;
 	current_map = 0;
@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 	}
 	if (maps == 0)
 	{
-		read(STDIN_FILENO, buffer, nbit);
+		print_string("Input the file name: ");
+		start_map(read_stdin());
 	}
 }

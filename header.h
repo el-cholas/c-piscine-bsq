@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 21:12:44 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 20:08:32 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/03 00:21:44 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	print_number(int nb);
 void	print_short_map(short **arr, int width, int height);
 /* file.c */
 char	*read_file(char *file);
+char	*read_stdin(void);
 /* map_helper.c */
 char	get_empty_char(char *map);
 char	get_obstical_char(char *map);
