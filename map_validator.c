@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:21:05 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/01 17:42:29 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 03:59:14 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int	is_height_valid(char *map, int start)
 }
 
 /*
+THIS IS 3 x FASTER BUT NORMINETTE IS A BOOT LICKER
 int	is_map_valid_old(char *map)
 {
 	int		counter;

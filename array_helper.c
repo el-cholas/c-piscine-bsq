@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 01:27:45 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 03:39:05 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 04:19:13 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,13 @@ where pos x and y are bottom right corner
 
 function goes throgh array backwards to always find top left
 */
-void	find_squares(short **m, int w, int h)
+int	*find_square(short **m, int w, int h)
 {
-	int	square[3];
+	int	*square;
 	int	x;
 	int	y;
 
+	square = (int *)malloc(sizeof(int) * 3);
 	square[0] = 0;
 	square[1] = 0;
 	square[2] = 0;
@@ -63,6 +64,35 @@ void	find_squares(short **m, int w, int h)
 		}
 		y--;
 	}
-	printf("x: %d\ny: %d\n", x, y);
-	printf("x: %d\ny: %d\nsize: %d\n", square[0], square[1], square[2]);
+	return (square);
+}
+
+/*
+map	= 1D string of map
+c	= char used to fill square
+*/
+void	fill_square(char *map, char c, int *square, int map_width)
+{
+	int	x;
+	int	y;
+
+	y = square[1] - square[2];
+	while (y < square[1])
+	{
+		x = square[0] - square[2];
+		while (x < square[0])
+		{
+			map[get_xy_coord(x + 1, y + 1, map_width)] = c;
+			x++;
+		}
+		y++;
+	}
+}
+
+//Input "false" coords to return the char index of that position
+// 0, 0 will return 0
+int	get_xy_coord(int x_coord, int y_coord, int map_width)
+{
+	map_width++;
+	return (map_width * y_coord + x_coord);
 }

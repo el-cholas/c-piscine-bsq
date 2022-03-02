@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:19:05 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 03:23:48 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 04:19:08 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,13 @@ map_short	= copy of map but in short format and as a bi-dimensional array
 void	main_map(char *map_string, char *chars, int m_x, int m_y)
 {
 	short	**map_short;
+	int		*square;
 
 	map_short = create_short_copy(map_string, chars, m_x, m_y);
-	print_string(map_string);
-	print_string("\n\n");
-	print_short_map(map_short, m_x, m_y);
 	calculate_squares(map_short, m_x, m_y);
-	print_string("\n\n");
-	print_short_map(map_short, m_x, m_y);
-	print_string("\n\n");
-	find_squares(map_short, m_x, m_y);
+	square = find_square(map_short, m_x, m_y);
+	fill_square(map_string, chars[2], square, m_x);
+	print_string(map_string);
 }
 
 /*
@@ -108,7 +105,7 @@ void	calculate_squares(short **m, int w, int h)
 		{
 			if (m[y][x] == -1)
 			{
-				m[y][x] = min(m[y][x - 1], m[y][x - 1], m[y - 1][x - 1]) + 1;
+				m[y][x] = min(m[y][x - 1], m[y - 1][x], m[y - 1][x - 1]) + 1;
 			}
 			x++;
 		}
@@ -119,14 +116,6 @@ void	calculate_squares(short **m, int w, int h)
 //printf("current: %c a: %c b: %c c: %c\n",mc[i],  mc[i - 1],
 //mc[i - mw],  mc[i - mw - 1]);
 //mc[i] = get_min(mc[i - 1], mc[i - mw], mc[i - mw - 1]) + '0';
-
-//Input "false" coords to return the char index of that position
-// 0, 0 will return 0
-int	get_xy_coord(int x_coord, int y_coord, int map_width)
-{
-	map_width++;
-	return (map_width * y_coord + x_coord);
-}
 
 /*
 mc = map_copy
