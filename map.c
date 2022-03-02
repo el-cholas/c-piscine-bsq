@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:19:05 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/01 23:33:22 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 01:20:57 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,40 +24,92 @@ void	start_map(char *map_file_name)
 {
 	char	*map;
 	char	*map_body;
-	char	*map_copy;
 	char	chars[3];
-	int		*int_map;
+	int		height;
 
 	map = read_file(map_file_name);
-	map_copy = read_file(map_file_name);
-	map_body = ft_strstr(map_copy, "\n") + 1;
-	map_copy = ft_strstr(map_copy, "\n") + 1;
-	int_map = (int *)map_copy;
-	int_map[get_string_size(map_copy) + 1] = -10;
+	map_body = ft_strstr(map, "\n") + 1;
 	chars[0] = get_empty_char(map);
 	chars[1] = get_obstical_char(map);
 	chars[2] = get_square_char(map);
+	height = string_to_int(map) - 1;
 	if (is_map_valid(map))
-		main_map(map, int_map, chars, get_width_of_map(map));
+		main_map(map_body, chars, get_width_of_map(map), height);
 	else
 		print_string("map error\n");
 }
 
 /*
-square_coords holds (posx, posy, size)
-where posx and posy are top left
+m_x			= map width
+m_y			= map height
+map_short	= copy of map but in short format and as a bi-dimensional array
 */
-void	main_map(char *map, int *map_copy, char *chars, int map_width)
+void	main_map(char *map_string, char *chars, int m_x, int m_y)
 {
-	int		square_coords[3];
+	short	**map_short;
 
-	change_chars(map_copy, chars[0], chars[1], map_width);
-	printf("%s\n\n", map);
+	map_short = create_short_copy(map_string, chars, m_x, m_y);
+	printf("%s\n\n", map_string);
+	//print_num_map(map_copy);
 	//printf("%s", map_copy);
-	square_coords[0] = 1;
-	square_coords[1] = 1;
-	square_coords[2] = 1;
 	//printf("%c\n", map[get_xy_coord(20, 10, map_width)]);
+}
+
+/*
+m	= map but in short format and bi domensional array
+m_s	= original map in short format
+c	= list of chars, 0 = empty character, 1 = obstcial character
+w	= map width
+h	= map height
+m[x][y] = -1 means that I will change the variable later
+*/
+short	**create_short_copy(char *m_s, char *c, int w, int h)
+{
+	short	**m;
+	int		x;
+	int		y;
+	int		i;
+
+	x = 0;
+	m = (short **)malloc(sizeof(short) * w * h);
+	i = 0;
+	y = 0;
+	while (m_s[i] != '0')
+	{
+		if (m_s[i] == '\n')
+		{
+			y++;
+			x = 0;
+		}
+		else if (m_s[i] == c[1])
+			m[x][y] = 0;
+		else if (m_s[i] == c[0])
+		{
+			if (i <= w || m_s[i - 1] == '\n')
+			{
+				m[x][y] = 1;
+			}
+			else
+			{
+				m[x][y] = -1;
+			}
+		}
+		i++;
+		x++;
+	}
+	return (m);
+}
+
+//printf("current: %c a: %c b: %c c: %c\n",mc[i],  mc[i - 1],
+//mc[i - mw],  mc[i - mw - 1]);
+//mc[i] = get_min(mc[i - 1], mc[i - mw], mc[i - mw - 1]) + '0';
+
+//Input "false" coords to return the char index of that position
+// 0, 0 will return 0
+int	get_xy_coord(int x_coord, int y_coord, int map_width)
+{
+	map_width++;
+	return (map_width * y_coord + x_coord);
 }
 
 /*
@@ -69,7 +121,9 @@ mw = map_width + 1;
 -2 = new line, will be ignored
 -10 = end of 'string'
 */
-void	change_chars(int *mc, char empty, char obstical, int map_width)
+
+/*
+void	change_chars(char *i_map, char empty, char obstical, int map_width)
 {
 	int	i;
 	int	mw;
@@ -92,16 +146,4 @@ void	change_chars(int *mc, char empty, char obstical, int map_width)
 		i++;
 	}
 }
-
-//printf("current: %c a: %c b: %c c: %c\n",mc[i],  mc[i - 1], mc[i - mw],  mc[i - mw - 1]);
-//mc[i] = get_min(mc[i - 1], mc[i - mw], mc[i - mw - 1]) + '0';
-
-//Input "false" coords to return the char index of that position
-// 1, 1 will return 0
-int	get_xy_coord(int x_coord, int y_coord, int map_width)
-{
-	map_width++;
-	y_coord--;
-	x_coord--;
-	return (map_width * y_coord + x_coord);
-}
+*/

@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 21:12:44 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/01 23:32:34 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 01:19:00 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		get_min(int a, int b, int c);
 void	print_char(char c);
 void	print_string(char *str);
 void	print_number(int nb);
+void	print_num_map(int *map);
 /* file.c */
 char	*read_file(char *file);
 /* map_helper.c */
@@ -44,8 +45,8 @@ int		is_width_valid(char *map, int start);
 int		is_height_valid(char *map, int start);
 /* map.c */
 void	start_map(char *map_file_name);
-void	main_map(char *map, int *map_copy, char *chars, int map_width);
-void	change_chars(int *mc, char empty, char obstical, int map_width);
+void	main_map(char *map_string, char *chars, int m_x, int m_y);
+short	**create_short_copy(char *m_s, char *c, int w, int h);
 int		get_xy_coord(int x_coord, int y_coord, int map_width);
 /* string.c */
 int		is_char_in_arr(char c, char *arr);

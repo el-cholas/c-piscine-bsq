@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:43:36 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/02/28 16:12:46 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/01 23:39:16 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,22 @@ void	print_number(int nb)
 	{
 		print_number(nb / 10);
 		print_char(nb % 10);
+	}
+}
+
+// for viewing pleasures
+void	print_num_map(int *map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i] != -10)
+	{
+		if (map[i] == -2)
+			printf("\n\n");
+		else
+			printf("%d", map[i] + '0');
+		printf(" ");
+		i++;
 	}
 }
