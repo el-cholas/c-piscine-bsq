@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 04:42:49 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/02 05:22:34 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/02 21:20:52 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int	main(int argc, char **argv)
 	}
 	if (maps == 0)
 	{
-		/* Standard input shit */
+		read(STDIN_FILENO, buffer, nbit);
 	}
 }
