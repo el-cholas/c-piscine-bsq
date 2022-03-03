@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 04:42:49 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/03 14:32:53 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:08:43 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	main(int argc, char **argv)
 	}
 	if (maps == 0)
 	{
-		start_map_stdin();
+		read_stdin();
+		start_map("no_args.txt");
 	}
 	return (0);
 }
