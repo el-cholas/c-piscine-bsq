@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:14:18 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/03 18:08:14 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:10:17 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*read_file(char *file)
 	return (file_content);
 }
 
-char	*read_stdin(void)
+void	read_stdin(void)
 {
 	int		a;
 	char	c;
