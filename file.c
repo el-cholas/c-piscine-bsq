@@ -6,7 +6,7 @@
 /*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 16:14:18 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/03 00:28:34 by xcarroll         ###   ########.fr       */
+/*   Updated: 2022/03/03 14:39:18 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ char	*read_stdin(void)
 	char	*input;
 	char	*input_content;
 	int		size;
+	int		a;
 
 	input = (char *)malloc(sizeof(char) * 1000000000);
-	read(0, input, 1000000000);
+	a = read(0, input, 1);
 	size = 0;
-	while (input[size] != '\0')
-		size++;
+	while (a > 0)
+		a = read(0, input, 1);
 	input_content = (char *)malloc(sizeof(char) * size + 1);
 	size = 0;
 	while (input[size] != '\0')
@@ -63,4 +64,24 @@ char	*read_stdin(void)
 	input_content[size - 1] = '\0';
 	free(input);
 	return (input_content);
+}
+
+void	start_map_stdin(void)
+{
+	char	*map;
+	char	*map_body;
+	char	chars[3];
+	int		height;
+
+	map = read_stdin();
+	map_body = ft_strstr(map, "\n") + 1;
+	chars[0] = get_empty_char(map);
+	chars[1] = get_obstical_char(map);
+	chars[2] = get_square_char(map);
+	height = string_to_int(map) - 1;
+	print_string(map);
+	if (is_map_valid(map))
+		main_map(map_body, chars, get_width_of_map(map), height);
+	else
+		print_string("map error\n");
 }

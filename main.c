@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igarcia- <igarcia-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: xcarroll <xcarroll@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 04:42:49 by xcarroll          #+#    #+#             */
-/*   Updated: 2022/03/03 12:16:17 by igarcia-         ###   ########.fr       */
+/*   Updated: 2022/03/03 14:32:53 by xcarroll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int	main(int argc, char **argv)
 	}
 	if (maps == 0)
 	{
-		print_string("Input the file name: ");
-		start_map(read_stdin());
+		start_map_stdin();
 	}
 	return (0);
 }
